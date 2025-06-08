@@ -36,7 +36,7 @@ The visualizations are powered by the `Folium` library, which generates interact
 
 ### Prerequisites
 Ensure you have the following installed:
-- Python 3.11+
+- Python 3.8+
 - Jupyter Notebook
 - Required Python libraries (listed in `requirements.txt`)
 
@@ -45,121 +45,128 @@ Ensure you have the following installed:
    ```bash
    git clone https://github.com/your-username/covid19-geospatial-analysis.git
    cd covid19-geospatial-analysis
+   ```
 
+2. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Install Dependencies:
-pip install -r requirements.txt
+   Or manually install:
+   ```bash
+   pip install geopy pandas numpy matplotlib folium
+   ```
 
-Or manually install:
-pip install geopy pandas numpy matplotlib folium
+3. **Download the Dataset**:
+   - The project uses `countries-aggregated.csv`, which contains COVID-19 data (Date, Country, Confirmed, Recovered, Deaths).
+   - Place the dataset in the `data/` folder or update the file path in the notebook.
 
+4. **Run the Notebook**:
+   ```bash
+   jupyter notebook Interactive_Geospatial_Data_Visualisation_Covid_19.ipynb
+   ```
 
-Download the Dataset:
+---
 
-The project uses countries-aggregated.csv, which contains COVID-19 data (Date, Country, Confirmed, Recovered, Deaths).
-Place the dataset in the data/ folder or update the file path in the notebook.
+## 📈 Usage
 
-
-Run the Notebook:
-jupyter notebook Interactive_Geospatial_Data_Visualisation_Covid_19.ipynb
-
-
-
-
-📈 Usage
-
-Extract Coordinates:
-
-The notebook uses geopy to fetch latitude and longitude for each country in the dataset.
+### Extract Coordinates
+The notebook uses geopy to fetch latitude and longitude for each country in the dataset.  
 Example: For "Tawau," it retrieves (4.2435206, 117.885331).
 
+### Data Preparation
+- Loads and aggregates COVID-19 data from `countries-aggregated.csv`.
+- Groups data by country to compute maximum values for Confirmed, Recovered, and Deaths.
 
-Data Preparation:
+### Visualizations
+- **Marker Cluster Map**: Run the cell under "Spatial Analysis with Folium" to generate a map with markers showing death counts.
+- **Heatmap**: Run the cell under "Geographic Heatmap of Confirmed Cases" to create a heatmap of confirmed cases.
 
-Loads and aggregates COVID-19 data from countries-aggregated.csv.
-Groups data by country to compute maximum values for Confirmed, Recovered, and Deaths.
+### Explore the Maps
+- Open the generated HTML map files in a browser.
+- Zoom, pan, and click markers to explore data interactively.
 
+---
 
-Visualizations:
-
-Marker Cluster Map: Run the cell under "Spatial Analysis with Folium" to generate a map with markers showing death counts.
-Heatmap: Run the cell under "Geographic Heatmap of Confirmed Cases" to create a heatmap of confirmed cases.
-
-
-Explore the Maps:
-
-Open the generated HTML map files in a browser or Justine
-Zoom, pan, and click markers to explore data interactively.
-
-
-
-
-📂 Project Structure
+## 📂 Project Structure
+```
 covid19-geospatial-analysis/
 ├── Interactive_Geospatial_Data_Visualisation_Covid_19.ipynb  # Main Jupyter Notebook
 ├── data/
 │   └── countries-aggregated.csv                             # COVID-19 dataset
 ├── requirements.txt                                         # Dependencies
 └── README.md                                                # This file
+```
 
+---
 
-🖼️ Visualizations
-1. Marker Cluster Map
-![image](https://github.com/user-attachments/assets/ab33dc45-61f6-4136-92c9-6bec33909c0a)
+## 🖼️ Visualizations
+
+### 1. Marker Cluster Map
+![Marker Cluster Map](https://github.com/user-attachments/assets/ab33dc45-61f6-4136-92c9-6bec33909c0a)
 
 A global map with clustered markers, each displaying the total number of COVID-19 deaths for a country. Zoom in to see individual markers and click for details.
 
-2. Heatmap of Confirmed Cases
-![image](https://github.com/user-attachments/assets/f44125b9-273b-487c-9712-9c6cc45ab74b)
+### 2. Heatmap of Confirmed Cases
+![Heatmap of Confirmed Cases](https://github.com/user-attachments/assets/f44125b9-273b-487c-9712-9c6cc45ab74b)
 
 A heatmap visualizing the density of confirmed COVID-19 cases worldwide, with color intensity representing case counts.
 
-Note: Replace placeholder images with actual screenshots of your maps for a more professional look.
+*Note: Replace placeholder images with actual screenshots of your maps for a more professional look.*
 
-📚 Dataset
-The dataset (countries-aggregated.csv) contains:
+---
 
-Columns: Date, Country, Confirmed, Recovered, Deaths
-Time Range: January 22, 2020, to April 16, 2022
-Source: Aggregated global COVID-19 data (ensure to credit the original source if known, e.g., JHU CSSE or WHO).
+## 📚 Dataset
+The dataset (`countries-aggregated.csv`) contains:
 
+- **Columns**: Date, Country, Confirmed, Recovered, Deaths
+- **Time Range**: January 22, 2020, to April 16, 2022
+- **Source**: Aggregated global COVID-19 data (ensure to credit the original source if known, e.g., JHU CSSE or WHO)
 
-💻 Technologies Used
+---
 
-Python: Core programming language
-Pandas: Data manipulation and aggregation
-Geopy: Geocoding for latitude and longitude
-Folium: Interactive map generation
-Matplotlib: Data visualization (optional for static plots)
-Jupyter Notebook: Interactive development environment
+## 💻 Technologies Used
 
+- **Python**: Core programming language
+- **Pandas**: Data manipulation and aggregation
+- **Geopy**: Geocoding for latitude and longitude
+- **Folium**: Interactive map generation
+- **Matplotlib**: Data visualization (optional for static plots)
+- **Jupyter Notebook**: Interactive development environment
 
-🤝 Contributing
+---
+
+## 🤝 Contributing
 Contributions are welcome! To contribute:
 
-Fork the repository.
-Create a new branch (git checkout -b feature-branch).
-Make your changes and commit (git commit -m "Add feature").
-Push to the branch (git push origin feature-branch).
-Open a Pull Request.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit (`git commit -m "Add feature"`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a Pull Request.
 
+---
 
-📜 License
+## 📜 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-🌟 Acknowledgments
+---
 
-Geopy: For providing geocoding services.
-Folium: For enabling interactive map visualizations.
-OpenStreetMap: For the map tiles used in visualizations.
-Dataset Providers: For the COVID-19 data (e.g., JHU CSSE, WHO, or other sources).
+## 🌟 Acknowledgments
 
+- **Geopy**: For providing geocoding services.
+- **Folium**: For enabling interactive map visualizations.
+- **OpenStreetMap**: For the map tiles used in visualizations.
+- **Dataset Providers**: For the COVID-19 data (e.g., JHU CSSE, WHO, or other sources).
 
-📬 Contact
+---
+
+## 📬 Contact
 Have questions or suggestions? Reach out!  
 
-GitHub: your-username  
-Email: your.email@example.com
+**GitHub**: BraynChung  
+**Email**: braynchung88@gmail.com
 
+---
 
-Stay curious, keep exploring, and let's map the world together! 🌎```
+*Stay curious, keep exploring, and let's map the world together!* 🌎
